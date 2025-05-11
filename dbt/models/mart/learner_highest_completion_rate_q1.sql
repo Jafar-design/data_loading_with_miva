@@ -9,3 +9,4 @@ WITH learner_highest_completion_rate AS (
 select *
 FROM learner_highest_completion_rate
 LIMIT 1
+
