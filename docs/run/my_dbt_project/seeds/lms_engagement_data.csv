@@ -1,9 +1,7 @@
 
     
     
-    
-    create table "analytics"."public"."lms_engagement_data" ("student_id" text,"course_id" integer,"course_code" text,"video_title" text,"role" text,"completion_rate_percent" float8)
-  ;
+    truncate table "analytics"."public"."lms_engagement_data";
     -- dbt seed --
     
           insert into "analytics"."public"."lms_engagement_data" ("student_id", "course_id", "course_code", "video_title", "role", "completion_rate_percent") values
