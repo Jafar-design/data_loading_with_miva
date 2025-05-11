@@ -1,0 +1,46 @@
+version: "3.8"
+services:
+  postgres:
+    image: postgres:15
+    container_name: postgres
+    restart: always
+    environment:
+      POSTGRES_DB: analytics
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5433:5432"
+
+  # database_loading:
+  #   build: .
+  #   container_name: database_loading
+  #   volumes:
+  #     - ./dbt/seeds:/app/dbt/seeds
+  #     - ./scripts:/app/scripts
+  #   environment:
+  #     - DATABASE_HOST=postgres
+  #     - DATABASE_PORT=5432
+  #   depends_on:
+  #     - postgres
+  #   command: ["python", "/app/scripts/main.py"]
+
+  dbt:
+    build: .
+    container_name: dbt_container
+    volumes:
+      - ./dbt:/app/dbt
+      - ./docs:/app/docs
+    depends_on:
+      - postgres
+    ports:
+      - "8081:8081"
+    entrypoint: ["/app/dbt_entrypoint.sh"]
+    
+
+
+volumes:
+  pgdata:
+

@@ -1,0 +1,8 @@
+packaging==24.2
+psycopg2-binary
+pandas
+dbt-core
+dbt-postgres
+flake8
+isort
+requests

@@ -1,0 +1,24 @@
+
+name: "my_dbt_project"  
+version: "1.0.0"
+config-version: 2
+
+profile: "my_postgres_profile"  # Profile name (must match profiles.yml)
+
+# Define where dbt should look for models
+model-paths: ["models"]
+
+# Store compiled SQL and logs
+target-path: "target"
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+models:
+  my_dbt_project:  
+    staging:
+      +materialized: view  
+    mart:
+      +materialized: table  
+    raw:
+      +materialized: table

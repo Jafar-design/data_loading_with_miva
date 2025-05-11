@@ -1,0 +1,1 @@
+{"_invocation_id": "e7b23dac-abf7-47cc-adc7-d08b8a28fd92", "linked": {"0": {"name": "seed.my_dbt_project.lms_engagement_data", "type": "seed", "succ": [1]}, "1": {"name": "model.my_dbt_project.raw_lms_data", "type": "model"}}}
