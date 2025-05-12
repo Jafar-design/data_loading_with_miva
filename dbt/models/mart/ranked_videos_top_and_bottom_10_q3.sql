@@ -2,7 +2,7 @@ WITH video_avg_completion AS (
     SELECT
         video_title,
         AVG(completion_rate_percent) AS avg_completion_rate
-    FROM {{ ref("raw_lms_data") }}
+    FROM {{ ref("student_data") }}
     WHERE video_title IS NOT NULL
     GROUP BY video_title
 ),

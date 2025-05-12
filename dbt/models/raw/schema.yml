@@ -1,0 +1,30 @@
+version: 2
+
+models:
+  - name: raw_lms_data
+    description: >
+      This data source is the original data provided by the Miva team. It consists of video watch log data.
+    columns:
+      - name: student_id
+        description: "Unique identifier for each student"
+        tests:
+          - not_null
+
+      - name: course_id
+        description: "Unique identifier for each student"
+        tests:
+          - not_null
+
+
+      - name: video_title
+        description: "Indicates the title of the video"
+        tests:
+          - not_null
+
+      - name: role
+        description: "Tells us in which other capacity the student might be acting in relation to Miva's other activities. E.g an admin officer might take one or two courses in the school"
+        tests:
+          - not_null
+
+
+

@@ -1,0 +1,15 @@
+version: 2
+
+models:
+  - name: learner_highest_completion_rate_q1
+    description: >
+      This model is the solution to the first question about the learner with the highest completion rate
+    columns:
+      - name: student_id
+        description: "Unique identifier for the particular student"
+        tests:
+          - not_null
+      - name: number_of_videos
+        description: "How many vidoes the learner watched"
+
+        

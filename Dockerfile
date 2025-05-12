@@ -26,6 +26,6 @@ WORKDIR /app/dbt
 COPY dbt/dbt_entrypoint.sh /app/dbt_entrypoint.sh
 RUN chmod +x /app/dbt_entrypoint.sh
 
-# Set the command to run the script
+
 CMD ["bash"]
 

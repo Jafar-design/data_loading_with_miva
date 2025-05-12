@@ -12,7 +12,7 @@
     SELECT
         student_id,
         AVG(completion_rate_percent) AS avg_completion_rate
-    FROM "analytics"."public"."raw_lms_data"
+    FROM "analytics"."public"."student_data"
     WHERE student_id IS NOT NULL
     GROUP BY student_id
 ),
