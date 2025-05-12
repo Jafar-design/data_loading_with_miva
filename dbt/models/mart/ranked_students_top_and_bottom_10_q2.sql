@@ -31,5 +31,3 @@ SELECT
     'Bottom' AS engagement_level
 FROM ranked_students
 WHERE rank_asc <= 10
-
-
