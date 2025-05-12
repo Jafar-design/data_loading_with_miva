@@ -11,7 +11,6 @@ DB_PARAMS = {
 
 TABLE_NAME = "lms_video_data"
 
-# Ensure table exists (idempotent, allows NULL values)
 CREATE_TABLE_SQL = f"""
 DROP TABLE IF EXISTS {TABLE_NAME} CASCADE;
 CREATE TABLE IF NOT EXISTS {TABLE_NAME} (
@@ -24,7 +23,6 @@ CREATE TABLE IF NOT EXISTS {TABLE_NAME} (
 );
 """
 
-# Insert statement with all columns
 INSERT_SQL = f"""
 INSERT INTO {TABLE_NAME} (student_id, course_id, course_code, video_title, role, completion_rate_percent)
 VALUES (%s, %s, %s, %s, %s, %s) ON CONFLICT DO NOTHING;
@@ -39,17 +37,15 @@ def insert_dataframe_data(df: pd.DataFrame):
         cur.execute(CREATE_TABLE_SQL)  
         conn.commit()
         
-        # Convert dataframe rows to list of tuples for batch insert
         records = [tuple(x) for x in df.to_numpy()]
         
-        # Execute batch insert
         cur.executemany(INSERT_SQL, records)
         
         conn.commit()
-        print("DataFrame ✅ Data inserted successfully!")
+        print("DataFrame Data inserted successfully!")
     
     except Exception as e:
-        print(f"❌ Error inserting data: {e}")
+        print(f"Error inserting data: {e}")
     
     finally:
         cur.close()
