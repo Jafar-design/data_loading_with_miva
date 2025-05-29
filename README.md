@@ -1,16 +1,4 @@
 
-# Project Setup Guide
-
-## Overview
-
-This project involves setting up **dbt (Data Build Tool)** inside a Docker container, running transformations on **PostgreSQL**, and serving **dbt docs** for visualization.
-
-## Architecture
-
-![alt text](image.png)
-
----
-
 ## Solution to the Assessment
 
 ### QUESTION 1
